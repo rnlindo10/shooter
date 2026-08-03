@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bqp0hrxloie2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny7rg"]
+size = Vector2(55, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ypvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2htbf"]
+size = Vector2(9, 660)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsi04"]
+size = Vector2(11, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asbp3"]
+size = Vector2(1163, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dt2w"]
+size = Vector2(1152, 18)
+
+[node name="jogo" type="Node2D" unique_id=1479081935]
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=44947191]
+
+[node name="CorpoPlayer" type="CollisionShape2D" parent="player" unique_id=1014898581]
+position = Vector2(167, 362)
+shape = SubResource("RectangleShape2D_ny7rg")
+
+[node name="ImagemPlayer" type="AnimatedSprite2D" parent="player" unique_id=521174829]
+sprite_frames = SubResource("SpriteFrames_7ypvo")
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=1425473534]
+
+[node name="esq" type="CollisionShape2D" parent="Paredes" unique_id=1619549437]
+position = Vector2(1.5, 320)
+shape = SubResource("RectangleShape2D_2htbf")
+
+[node name="dir" type="CollisionShape2D" parent="Paredes" unique_id=879176602]
+position = Vector2(1149.5, 319.5)
+shape = SubResource("RectangleShape2D_xsi04")
+
+[node name="teto" type="CollisionShape2D" parent="Paredes" unique_id=616856085]
+position = Vector2(571.5, 0.5)
+shape = SubResource("RectangleShape2D_asbp3")
+
+[node name="chao" type="CollisionShape2D" parent="Paredes" unique_id=1364325936]
+position = Vector2(577, 638)
+shape = SubResource("RectangleShape2D_1dt2w")

@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://ollenuch3oig"]
+
+[ext_resource type="Script" uid="uid://c7coe7aq0oyxe" path="res://Cenas/player.gd" id="1_5n27r"]
+[ext_resource type="Texture2D" uid="uid://ci2yms6x118wd" path="res://assetpack/Bonus (player ship)/sprite_player_spaceship_up_down.png" id="2_03mvh"]
+[ext_resource type="Texture2D" uid="uid://bl5unbujheorq" path="res://assetpack/parallax/skies/Sky_sky.png" id="3_ovbra"]
+[ext_resource type="Script" uid="uid://cg0pnpbw5vuln" path="res://Cenas/parallax_background.gd" id="3_reiul"]
+[ext_resource type="Texture2D" uid="uid://dyxfyioigwo2t" path="res://assetpack/parallax/skies/Sky_back_mountain.png" id="4_reiul"]
+[ext_resource type="Texture2D" uid="uid://cliod7tu2f64e" path="res://assetpack/parallax/skies/sky_front_mountain.png" id="5_xmmbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ekxr"]
+size = Vector2(151, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45s2r"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(0, 0, 350, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y28df"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(350, 0, 350, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovbra"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(700, 0, 350, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reiul"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(1050, 0, 350, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmmbr"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(1400, 0, 350, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2wm8"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(1750, 0, 350, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4inx"]
+atlas = ExtResource("2_03mvh")
+region = Rect2(2100, 0, 350, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6kaig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45s2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y28df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovbra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reiul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmmbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2wm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4inx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kaig"]
+size = Vector2(13.5, 658)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khprl"]
+size = Vector2(10, 654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiqwp"]
+size = Vector2(1146, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnq1p"]
+size = Vector2(1150, 28)
+
+[node name="Jogo" type="Node2D" unique_id=903030425]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1509853137]
+script = ExtResource("1_5n27r")
+
+[node name="CorpoPlayer" type="CollisionShape2D" parent="Player" unique_id=1788416368]
+position = Vector2(115.5, 270.5)
+shape = SubResource("RectangleShape2D_0ekxr")
+
+[node name="ImagemPlayer" type="AnimatedSprite2D" parent="Player" unique_id=994031770]
+position = Vector2(114.62501, 270.375)
+scale = Vector2(0.5392857, 0.73833334)
+sprite_frames = SubResource("SpriteFrames_6kaig")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1233200798]
+
+[node name="Esq" type="CollisionShape2D" parent="StaticBody2D" unique_id=839007376]
+position = Vector2(0, 323)
+shape = SubResource("RectangleShape2D_6kaig")
+
+[node name="Dir" type="CollisionShape2D" parent="StaticBody2D" unique_id=1161561313]
+position = Vector2(1144, 323)
+shape = SubResource("RectangleShape2D_khprl")
+
+[node name="Teto" type="CollisionShape2D" parent="StaticBody2D" unique_id=153303230]
+position = Vector2(574, 4)
+shape = SubResource("RectangleShape2D_jiqwp")
+
+[node name="Chao" type="CollisionShape2D" parent="StaticBody2D" unique_id=72152796]
+position = Vector2(574, 650)
+shape = SubResource("RectangleShape2D_cnq1p")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1219397734]
+script = ExtResource("3_reiul")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=532522466]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=2095860014]
+position = Vector2(563.5, 504)
+scale = Vector2(0.6131579, 1)
+texture = ExtResource("3_ovbra")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=881089647]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1716142243]
+position = Vector2(562.5, 333)
+scale = Vector2(0.61210525, 0.658)
+texture = ExtResource("4_reiul")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=666281351]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=980940477]
+position = Vector2(563.5, 333)
+scale = Vector2(0.61315787, 0.658)
+texture = ExtResource("5_xmmbr")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2127985759]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=791924296]
+position = Vector2(573, -153.49997)
+scale = Vector2(0.6031579, 0.569)
